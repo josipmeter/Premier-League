@@ -1,6 +1,8 @@
 import express from 'express';
 import path from 'path';
 import { auth, requiresAuth } from 'express-openid-connect'; 
+import dotenv from 'dotenv'
+import { Pool } from 'pg'
 
 const config = {
   authRequired: false,
@@ -13,19 +15,36 @@ const config = {
 
 const app = express();
 app.set("views", path.join(__dirname, "views"));
-
+app.set("view engine", "pug")
 
 // auth router attaches /login, /logout, and /callback routes to the baseURL
 app.use(auth(config));
 
-app.get('/', function(req, res) {
-  req.oidc.isAuthenticated() ? res.sendFile(path.join(__dirname, 'views/logged.html')) : res.sendFile(path.join(__dirname, 'views/index.html'));
+
+app.get('/',  function (req, res) {
+  let username : string | undefined;
+  if (req.oidc.isAuthenticated()) {
+    username = req.oidc.user?.name ?? req.oidc.user?.sub;
+  }
+  res.render('index', {username});
 });
 
-// req.isAuthenticated is provided from the auth router
-app.get('/login', (req, res) => {
-  res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
+app.get('/newmatch',  function (req, res) {
+  res.render('newmatch');
 });
+
+app.get('/add',  function (req, res) {
+  res.send('Added')
+});
+
+// app.get('/', function(req, res) {
+//   req.oidc.isAuthenticated() ? res.sendFile(path.join(__dirname, 'views/logged.html')) : res.sendFile(path.join(__dirname, 'views/index.html'));
+// });
+
+// req.isAuthenticated is provided from the auth router
+// app.get('/login', (req, res) => {
+//   res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
+// });
 
 app.listen(3000, () => {
     console.log('The application is listening on port 3000!');

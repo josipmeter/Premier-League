@@ -1,0 +1,17 @@
+html 
+    head 
+        title Premier League
+    body
+        if username
+            if username === "pero.peric@gmail.com"
+              h1 Logged in as administrator
+              a(href="/newmatch", title='New match') Create New Match
+            else
+              h1 Welcome #{username}
+        ul 
+            if username
+                li: form(action="/logout", method="get")
+                    input(type="submit", value="Logout " + username)
+            else
+                li: a(href='/login', title='Log in') Log in
+                
