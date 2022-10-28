@@ -4,11 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run clean && tsc && npm run copy-views && npm run copy-views",
-    "clean": "if exist dist rmdir /s /q dist",
-    "copy-views": "robocopy /mir /NFL /NDL /NJH /NJS /nc /ns /np src/views/ dist/views & exit 0",
-    "start": "tsc && node dist/index.js"
+    "build": "npm run clean; tsc; npm run copy-views; npm run copy-views",
+    "clean": "rm -rf dist",
+    "copy-views": "cp -r src/views/ dist/views/",
+    "start": "node dist/08-webapp.js"
   },
   "repository": {
     "type": "git",
