@@ -2,11 +2,17 @@ html
   head 
     title Create new match
   body
-    input(placeholder="Home team" name="hometeam" value=hometeam)
-    br
-    input(placeholder="Away team" name="awayteam" value=awayteam)
-    br
-    input(placeholder="Date" name="date" type="date" value="date")
-    br
-    form(action="/add" method="POST")
-    input(type="submit", value="Add")          
+    form(action="/add",method="POST")
+      label(for="homeTeam") Home team 
+      input#homeTeam(type="text", name="homeTeam")
+      br
+      label(for="awayTeam") Away team 
+      input#awayTeam(type="text", name="awayTeam")
+      br
+      label(for="score") Score 
+      input#name(type="text", name="score")
+      br
+      label(for="date") Date 
+      input#name(type="text", name="date")
+      br    
+      button(type="submit" ) Submit

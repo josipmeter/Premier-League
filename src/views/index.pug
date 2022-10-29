@@ -8,6 +8,19 @@ html
               a(href="/newmatch", title='New match') Create New Match
             else
               h1 Welcome #{username}
+        ul
+            each m in playedMatches
+                li #{m.homeTeam} - #{m.awayTeam} #{m.score} #{m.date}
+        table(style="float:right",border='1')
+            tr
+                th Team
+                th Goal Difference 
+                th Points
+            each t in teamTable
+                tr
+                    td #{t.name}
+                    td #{t.goalDiff}
+                    td #{t.points}     
         ul 
             if username
                 li: form(action="/logout", method="get")
