@@ -27,11 +27,9 @@ const config = {
 //   ssl : true
 // })
 
-const connectionString = 'postgres://premier_league_db_user:CWur2el7K0gceJumVRxpeE2LqYicL8XS@dpg-cdc3pg4gqg48t041h210-a.frankfurt-postgres.render.com/premier_league_db'
-
-const pool = new Pool({
-  connectionString,
-})
+// const pool = new Pool({
+//   connectionString,
+// })
 
 type Match = {
   homeTeam: string,
