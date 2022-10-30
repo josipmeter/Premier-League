@@ -38,16 +38,25 @@ type Match = {
   date: string
 }
 
-let playedMatches: Match[] = [];
+let playedMatches: Match[] = [{homeTeam:"Nottingham Forest",awayTeam: "Liverpool", score: " 1 - 0 ", date: "22.10.2022."},
+{homeTeam:"Everton",awayTeam: "Crystal Palace", score: " 3 - 0 ", date: "22.10.2022."},
+{homeTeam:"Man City",awayTeam: "Brighton", score: " 3 - 1 ", date: "22.10.2022."},
+{homeTeam:"Chelsea",awayTeam: "Man Utd", score: " 1 - 1 ", date: "22.10.2022."},
+{homeTeam:"Wolves",awayTeam: "Leicester", score: " 0 - 4 ", date: "23.10.2022."},
+{homeTeam:"Aston Villa",awayTeam: "Brentford", score: " 4 - 0 ", date: "23.10.2022."},
+{homeTeam:"Southampton",awayTeam: "Arsenal", score: " 1 - 1 ", date: "23.10.2022."},
+{homeTeam:"Leeds",awayTeam: "Fulham", score: " 2 - 3 ", date: "23.10.2022."},
+{homeTeam:"Spurs",awayTeam: "Newcastle", score: " 1 - 2 ", date: "23.10.2022."},
+{homeTeam:"West Ham",awayTeam: "Bournemouth", score: " 2 - 0 ", date: "24.10.2022."},];
 
-const match : Match = {
-  homeTeam: "Chelsea",
-  awayTeam: "Arsenal",
-  score: "3 - 1",
-  date: "20.10.2022"
-}
+// const match : Match = {
+//   homeTeam: "Chelsea",
+//   awayTeam: "Arsenal",
+//   score: "3 - 1",
+//   date: "20.10.2022"
+// }
 
-playedMatches.push(match);
+// playedMatches.push(match);
 
 type Team = {
   name: string,
